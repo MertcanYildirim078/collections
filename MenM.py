@@ -16,27 +16,37 @@ mnmDictionaryBag = {
   'bruin' : 0
 }
 
-# MenMkleurendictionary = {'Kleuren':['Oranje', 'Blauw', 'Groen', 'Bruin']}
+
 MenMKleuren = ['oranje','rood','geel','bruin']
-# MenMzak = []
+MenMzak = []
 
 
-# def GenerateMenM(aantalMenM):
-#     for x in range(aantalMenM):
-#         Kleurnummer = random.randint(0,3)
-#         MenMzak.append(MenMkleuren[Kleurnummer])
-        
-#     print(MenMzak)
-#     return MenMzak
-# MenM = GenerateMenM(aantalMenM)
-# print(mnmDictionaryBag)
+def GenerateMenM(aantalMenM):
+    for x in range(aantalMenM):
+        Kleurnummer = random.randint(0,3)
+        MenMzak.append(MenMKleuren[Kleurnummer])
+    return MenMzak
 
-def MenMdictionary(aantalMenM,mnmDictionaryBag):
+def MenMdictionarylist(aantalMenM,mnmDictionaryBag):
     for x in range(aantalMenM):
         kleurMM = random.choice(MenMKleuren)
         mnmDictionaryBag[kleurMM] += 1
     return mnmDictionaryBag
-    
 
-mnmDictionaryBag = MenMdictionary(aantalMenM,mnmDictionaryBag)
-print(mnmDictionaryBag)
+def SortBag(MenMZak):
+    SortedBag = {
+  'oranje': 0,
+  'rood' : 0,
+  'geel' : 0,
+  'bruin' : 0
+    }
+    for kleur in MenMZak:
+        SortedBag[kleur] += 1
+    
+    return SortedBag  
+
+mnmDictionaryBag = MenMdictionarylist(aantalMenM,mnmDictionaryBag)
+MenMZak = GenerateMenM(aantalMenM)
+SortedBag = SortBag(MenMZak)
+print(MenMZak)
+print(SortedBag)
