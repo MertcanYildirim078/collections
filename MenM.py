@@ -8,24 +8,35 @@ import random
 # De functie geeft de List (zak met M&M’s) terug als return value
 # Het programma vraagt met een input hoeveel kleuren (M&M’s) er aan de zak toegevoegd moeten worden
 # Het programma print als laatste de inhoud uit van de zak met M&M’s
-
-
-MenMkleuren = ['Oranje', 'Blauw', 'Groen', 'Bruin']
-
-MenMzak = []
 aantalMenM = int(input('Hoeveel MenM wilt u in de zak? '))
-def GenerateMenM(aantalMenM):
-    for x in range(aantalMenM):
-        Kleurnummer = random.randint(0,3)
-        MenMzak.append(MenMkleuren[Kleurnummer])
+mnmDictionaryBag = {
+  'oranje': 0,
+  'rood' : 0,
+  'geel' : 0,
+  'bruin' : 0
+}
+
+# MenMkleurendictionary = {'Kleuren':['Oranje', 'Blauw', 'Groen', 'Bruin']}
+MenMKleuren = ['oranje','rood','geel','bruin']
+# MenMzak = []
+
+
+# def GenerateMenM(aantalMenM):
+#     for x in range(aantalMenM):
+#         Kleurnummer = random.randint(0,3)
+#         MenMzak.append(MenMkleuren[Kleurnummer])
         
-    print(MenMzak)
-    return MenMzak
-MenM = GenerateMenM(aantalMenM)
+#     print(MenMzak)
+#     return MenMzak
+# MenM = GenerateMenM(aantalMenM)
+# print(mnmDictionaryBag)
 
+def MenMdictionary(aantalMenM,mnmDictionaryBag):
+    for x in range(aantalMenM):
+        kleurMM = random.choice(MenMKleuren)
+        mnmDictionaryBag[kleurMM] += 1
+    return mnmDictionaryBag
+    
 
-
-
-def zakMenM(MenMkleuren):
-    pass
-
+mnmDictionaryBag = MenMdictionary(aantalMenM,mnmDictionaryBag)
+print(mnmDictionaryBag)
